@@ -15,20 +15,14 @@ public class Division {
 		a = scan.nextDouble();
 		System.out.println("Entrez une deuxième valeur");
 		b = scan.nextDouble();
-		double val = diviser(a, b);
+		double val = divide(a, b);
 
 		return val;
 	}
 	
-	public double diviser(double a, double b) {
+	public double divide(double a, double b) {
 		double val = a / b;
 
 		return val;
 	}
-	
-	@Test
-	 public void testDiviser() {
-		 Division division = new Division();
-        assertTrue(division.diviser(6,2) == 3);
-  }
 }

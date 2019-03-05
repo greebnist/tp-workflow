@@ -7,8 +7,10 @@ public class TpTestApplication {
 	
 	public static void main(String[] args) {
 		TpTestApplication calculator = new TpTestApplication();
+		Addition addition = new Addition();
 		Multiplication multiplication = new Multiplication();
 		Division division = new Division();
+		Substraction substraction = new Substraction();
 		Scanner scan = new Scanner(System.in);
 		calculator.showMenu();
 		int x = scan.nextInt();
@@ -16,11 +18,15 @@ public class TpTestApplication {
 		
 		switch (x) {
 		case 1:
-			
+			score = addition.addition();
+			System.out.println(score);
+			break;
 		case 2:
-		
+			score = substraction.substraction();
+			System.out.println(score);
+			break;
 		case 3:
-			score = multiplication.mutliplication();
+			score = multiplication.multiplication();
 			System.out.println(score);
 			break;
 		case 4:
