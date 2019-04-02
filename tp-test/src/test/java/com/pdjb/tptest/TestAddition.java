@@ -18,4 +18,9 @@ public class TestAddition {
 	public final void testAddNegative() {
 		assertTrue(Addition.add(-1,2) == 1);
 	}
+	
+	@Test
+	public final void testAddNegative2() {
+		assertTrue(Addition.add(2,-1) == 1);
+	}
 }
