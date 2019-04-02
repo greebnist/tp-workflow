@@ -1,11 +1,15 @@
 package com.pdjb.tptest;
 
+import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
+
+import java.lang.reflect.Method;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import com.pdjb.tptest.Addition;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 public class TestAddition {
 	
@@ -48,5 +52,25 @@ public class TestAddition {
 	@Test
 	public final void testAddDoubleNegative() {
 		assertTrue(Addition.add(-1, -1) == -2);
+	}
+	
+	@Test (expected = Exception.class)
+	public final void testAddIntMaxValue() {
+		assertFalse(Addition.add(Integer.MAX_VALUE,Integer.MAX_VALUE) == Integer.MAX_VALUE * 2);
+	}
+	
+	@Test
+	public final void testAddExists() {
+		Class<Addition>klass = Addition.class;
+		Method[] methods = klass.getMethods();
+		boolean result = false;
+		String methodName = "Addition.add(double,double)";
+		
+        for (int i = 0; i < methods.length; i++) {
+        	if( methods[i].toString().contains(methodName) ) {
+        		result = true;
+        	}
+		}
+        assertTrue(result);
 	}
 }
