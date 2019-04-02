@@ -23,4 +23,9 @@ public class TestAddition {
 	public final void testAddNegative2() {
 		assertTrue(Addition.add(2,-1) == 1);
 	}
+	
+	@Test
+	public final void testAddZero() {
+		assertTrue(Addition.add(0,2) == 2);
+	}
 }
