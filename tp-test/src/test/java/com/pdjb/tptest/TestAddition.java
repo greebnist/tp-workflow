@@ -10,7 +10,12 @@ import com.pdjb.tptest.Addition;
 public class TestAddition {
 	
 	@Test
-	public final void testAdd() {
+	public final void testAddPositive() {
 		assertTrue(Addition.add(2,2) == 4);
+	}
+	
+	@Test
+	public final void testAddNegative() {
+		assertTrue(Addition.add(-1,2) == 1);
 	}
 }
