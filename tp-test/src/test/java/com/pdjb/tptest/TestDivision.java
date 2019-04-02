@@ -1,8 +1,10 @@
-package com.pdjb.tptest;
+package test.java.com.pdjb.tptest;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
+
+import main.java.com.pdjb.tptest.Division;
 
 public class TestDivision {
 	@Test

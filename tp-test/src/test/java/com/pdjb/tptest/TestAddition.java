@@ -1,11 +1,11 @@
-package com.pdjb.tptest;
+package test.java.com.pdjb.tptest;
 
 import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import com.pdjb.tptest.Addition;
+import main.java.com.pdjb.tptest.Addition;
 
 public class TestAddition {
 	

@@ -1,4 +1,4 @@
-package com.pdjb.tptest;
+package main.java.com.pdjb.tptest;
 import java.util.Scanner;
 
 public class TpTestApplication {
