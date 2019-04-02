@@ -44,4 +44,9 @@ public class TestAddition {
 	public final void testAddZeroNegative2() {
 		assertTrue(Addition.add(-1,0) == -1);
 	}
+	
+	@Test
+	public final void testAddDoubleNegative() {
+		assertTrue(Addition.add(-1, -1) == -2);
+	}
 }
