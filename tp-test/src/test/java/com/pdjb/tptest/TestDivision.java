@@ -4,6 +4,8 @@ import static org.junit.Assert.assertTrue;
 
 import org.junit.Test;
 
+import com.pdjb.tptest.Division;
+
 public class TestDivision {
 	@Test
 	 public final void testDivision() {

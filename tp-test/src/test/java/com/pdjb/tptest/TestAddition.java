@@ -4,12 +4,14 @@ import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
 import java.lang.reflect.Method;
+import java.lang.reflect.Parameter;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
+import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import com.pdjb.tptest.Addition;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
+
 
 public class TestAddition {
 	
@@ -64,11 +66,18 @@ public class TestAddition {
 		Class<Addition>klass = Addition.class;
 		Method[] methods = klass.getMethods();
 		boolean result = false;
-		String methodName = "Addition.add(double,double)";
+		String methodName = "add";
 		
         for (int i = 0; i < methods.length; i++) {
-        	if( methods[i].toString().contains(methodName) ) {
-        		result = true;
+        	if( methods[i].getName() == methodName) {
+        		if(methods[i].getParameterCount() == 2 ) {
+        			Class[] parameters = methods[i].getParameterTypes();
+        			for(int j = 0; i < parameters.length; i++) {
+        				if(parameters[j].getName() == "double") {
+        					result = true;
+        				};
+        			}
+        		}
         	}
 		}
         assertTrue(result);
