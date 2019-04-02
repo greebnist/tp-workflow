@@ -28,4 +28,9 @@ public class TestAddition {
 	public final void testAddZero() {
 		assertTrue(Addition.add(0,2) == 2);
 	}
+	
+	@Test
+	public final void testAddZeroNegative() {
+		assertTrue(Addition.add(0,-1) == -1);
+	}
 }
