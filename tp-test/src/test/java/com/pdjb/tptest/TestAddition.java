@@ -33,4 +33,10 @@ public class TestAddition {
 	public final void testAddZeroNegative() {
 		assertTrue(Addition.add(0,-1) == -1);
 	}
+	
+	
+	@Test
+	public final void testAddZeroPositive() {
+		assertTrue(Addition.add(0,2) == 2);
+	}
 }
