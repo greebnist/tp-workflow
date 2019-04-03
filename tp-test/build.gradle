@@ -132,3 +132,12 @@ findbugs {
     omitVisitors = ["FindNonShortCircuit"]
     excludeFilter = file("$rootProject.projectDir/config/findbugs/findbugsExclude.xml")
 }
+
+/* jacoco */
+
+apply plugin: 'jacoco'
+
+jacoco {
+    toolVersion = "0.8.3"
+    reportsDir = file("$project.buildDir/reports/jacoco")
+}
