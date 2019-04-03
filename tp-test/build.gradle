@@ -69,3 +69,49 @@ task copyDeps(type: Copy) {
   from configurations.runtime
   into 'libs'
 }
+
+/* PMD */
+
+apply plugin: 'pmd'
+
+task pmdMain(type: Pmd, overwrite: true) {
+ ignoreFailures = true
+ description 'Runs PMD inspection against Android sourcesets.'
+ group = 'Code Quality'
+ ruleSetFiles = files("${rootProject.rootDir}/config/pmd/pmd_rules.xml")
+ source = fileTree( javasRoot)
+ include '**/*.java'
+ exclude '**/gen/**'
+ reports {
+ xml.enabled = true
+ html.enabled = false
+ }
+}
+
+// add CPD to check
+check  {
+  File outDir = new File('build/reports/pmd/')
+  outDir.mkdirs()
+  ant.taskdef(name: 'cpd', classname: 'net.sourceforge.pmd.cpd.CPDTask',
+    classpath: configurations.pmd.asPath)
+  ant.cpd(minimumTokenCount: '100', format: 'xml',
+    outputFile: new File(outDir , 'cpd.xml')) {
+    fileset(dir: "src/main/java") {
+      include(name: '**/*.java')
+    }
+  }
+}
+
+task pmdTest(type: Pmd, overwrite: true) {
+ ignoreFailures = true
+ description 'Runs PMD inspection against Android sourcesets.'
+ group = 'Code Quality'
+ ruleSetFiles = files("${rootProject.rootDir}/config/pmd/pmd_rules.xml")
+ source = fileTree(testJavaRoot)
+ include '**/*.java'
+ exclude '**/gen/**'
+ reports {
+ xml.enabled = true
+ html.enabled = false
+ }
+}
