@@ -1,9 +1,6 @@
 package com.pdjb.tptest;
 
 import java.util.Scanner;
-import org.junit.Test;
-
-import static org.junit.Assert.*;
 
 public class Multiplication {
 	Scanner scan = new Scanner(System.in); 

@@ -1,10 +1,6 @@
 package com.pdjb.tptest;
 
-import static org.junit.Assert.assertTrue;
-
 import java.util.Scanner;
-
-import org.junit.Test;
 
 public class Division {
 	Scanner scan = new Scanner(System.in); 
