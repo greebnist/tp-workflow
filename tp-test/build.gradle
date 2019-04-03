@@ -115,3 +115,20 @@ task pmdTest(type: Pmd, overwrite: true) {
  html.enabled = false
  }
 }
+
+/* findbugs */
+
+apply plugin: "findbugs"
+
+findbugs {
+    toolVersion = "3.0.1"
+    sourceSets = [sourceSets.main, sourceSets.test]
+    ignoreFailures = true
+    reportsDir = file("$project.buildDir/reports/findbugs")
+    effort = "max"
+    showProgress = true
+    reportLevel = "high"
+    visitors = ["FindSqlInjection", "SwitchFallthrough"]
+    omitVisitors = ["FindNonShortCircuit"]
+    excludeFilter = file("$rootProject.projectDir/config/findbugs/findbugsExclude.xml")
+}
