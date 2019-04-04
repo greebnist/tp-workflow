@@ -8,7 +8,6 @@ import java.lang.reflect.Parameter;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;
-import com.sun.xml.internal.bind.v2.runtime.unmarshaller.XsiNilLoader.Array;
 
 import com.pdjb.tptest.Addition;
 
@@ -21,17 +20,17 @@ public class TestAddition {
 	}
 	
 	@Test
-	public final void testAddNegative() {
+	public final void testAddNegativePositive() {
 		assertTrue(Addition.add(-1,2) == 1);
 	}
 	
 	@Test
-	public final void testAddNegative2() {
+	public final void testAddPositiveNegative() {
 		assertTrue(Addition.add(2,-1) == 1);
 	}
 	
 	@Test
-	public final void testAddZero() {
+	public final void testAddZeroPositive() {
 		assertTrue(Addition.add(0,2) == 2);
 	}
 	
@@ -40,14 +39,8 @@ public class TestAddition {
 		assertTrue(Addition.add(0,-1) == -1);
 	}
 	
-	
 	@Test
-	public final void testAddZeroPositive() {
-		assertTrue(Addition.add(0,2) == 2);
-	}
-	
-	@Test
-	public final void testAddZeroNegative2() {
+	public final void testAddNegativeZero() {
 		assertTrue(Addition.add(-1,0) == -1);
 	}
 	
@@ -58,7 +51,7 @@ public class TestAddition {
 	
 	@Test (expected = Exception.class)
 	public final void testAddIntMaxValue() {
-		assertFalse(Addition.add(Integer.MAX_VALUE,Integer.MAX_VALUE) == Integer.MAX_VALUE * 2);
+		Addition.add(Integer.MAX_VALUE,Integer.MAX_VALUE);
 	}
 	
 	@Test
