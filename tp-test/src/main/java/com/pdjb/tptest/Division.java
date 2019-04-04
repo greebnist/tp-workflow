@@ -16,7 +16,7 @@ public class Division {
 		return val;
 	}
 	
-	public double divide(double a, double b) {
+	public static double divide(double a, double b) {
 		double val = a / b;
 
 		return val;

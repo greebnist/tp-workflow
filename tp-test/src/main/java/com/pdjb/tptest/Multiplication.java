@@ -16,7 +16,7 @@ public class Multiplication {
 		return val;
 	}
 	
-	public double multiply(double a, double b) {
+	public static double multiply(double a, double b) {
 		double val = a * b;
 
 		return val;
